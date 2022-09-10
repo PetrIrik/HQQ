@@ -56,11 +56,11 @@ public:
 
 	void PrintInfStudent() 
 	{
-		std::cout << " Студент № " << get_countC() << std::endl;
 		std::cout << " Имя = " << getName() << std::endl;
 		std::cout << " Пол = " << getGender() << std::endl;
 		std::cout << " Возраст = " << getAge() << std::endl;
 		std::cout << " Год обучения = " << getStudy_year() << std::endl;
+		
 		std::cout << std::endl;
 	}
 private:
@@ -70,6 +70,63 @@ private:
 };
 
 int Student::_countS = 0;
+
+/*2. Создать классы Apple (яблоко) и Banana (банан), которые наследуют класс Fruit (фрукт).
+У Fruit есть две переменные-члена: name (имя) и color (цвет). Добавить новый класс GrannySmith, который наследует класс Apple.*/
+
+class Fruit
+{
+public:
+
+	Fruit() = default; 
+
+	Fruit(const std::string name, const std::string color)
+		: f_name(name), f_color(color)
+	{
+
+	}
+
+	std::string  getName() const { return f_name;  }
+	std::string  getColor() const { return f_color; }
+	
+	
+private:
+	std::string f_name;
+	std::string f_color;
+};
+
+class Apple:public Fruit
+{
+public:
+	Apple(const std::string color , const std::string name = "")
+		: Fruit(name + "apple", color)
+	{
+	}
+
+private:
+	
+};
+
+class Banana:public Fruit
+{
+public:
+	Banana() : Fruit(" banana ", " yellow ")
+	{
+	}
+private:
+
+};
+
+class GrannySmith:public Apple
+{
+public:
+	GrannySmith() : Apple( " green ", " Granny Smith ")
+	{
+	}
+
+private:
+
+};
 
 
 
@@ -83,6 +140,16 @@ int main (){
 
 	Student Anna("Анна", " Женщина ", 20, 59, 2022);
 	Anna.PrintInfStudent();
-	
+	std::cout << std::endl;
+
+	Apple a(" red ");
+	Banana b;
+	GrannySmith c;
+
+	std::cout << "My " << a.getName() << " is " << a.getColor() << ".\n";
+	std::cout << "My " << b.getName() << " is " << b.getColor() << ".\n";
+	std::cout << "My " << c.getName() << " is " << c.getColor() << ".\n";
+
+
 	return 0;
 }
