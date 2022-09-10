@@ -157,7 +157,7 @@ enum class Suit
 };
 
 
-class Hand //рука в которые 
+class Hand //набор карт
 {
 public:
 	
@@ -192,7 +192,7 @@ class Computre // компьютер
 {
 
 };
-
+// незнаю надо ли делать дилера 
 
 
 
